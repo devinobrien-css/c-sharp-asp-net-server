@@ -10,10 +10,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("server_secrets")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("c-sharp-asp-net-server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c53c2de168355856640949bc14f2544c179de36c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+69a3542d17c6de36ee0b7d3fabb596a41a699e8c")]
 [assembly: System.Reflection.AssemblyProductAttribute("c-sharp-asp-net-server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("c-sharp-asp-net-server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

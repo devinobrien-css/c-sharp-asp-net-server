@@ -8,19 +8,18 @@ namespace c_sharp_asp_net_server.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class ObjectController : ControllerBase
-    {
-        private readonly List<ObjectModel> _objects = new List<ObjectModel>
-        {
-            new ObjectModel { Id = 1, Name = "Object 1", Description = "Description of Object 1" },
-            new ObjectModel { Id = 2, Name = "Object 2", Description = "Description of Object 2" },
-            // Add more sample objects here
-        };
-
+    {   
         // GET: api/Object
         [HttpGet]
-        public IEnumerable<ObjectModel> Get()
+        public IEnumerable<Object> Get()
         {
-            return _objects;
+            using(var db = new DatabaseContext())
+            {
+                db.Database.EnsureCreated();
+
+                var objects = db.Objects.ToList();
+                return objects;
+            }
         }
 
         // // GET: api/Object/5
@@ -70,12 +69,5 @@ namespace c_sharp_asp_net_server.Controllers
         //     _objects.Remove(objToRemove);
         //     return NoContent();
         // }
-    }
-
-    public class ObjectModel
-    {
-        public int Id { get; set; }
-        public string Name { get; set; } = "";
-        public string Description { get; set; } = "";
     }
 }

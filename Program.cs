@@ -2,50 +2,46 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.SqlServer; 
 
+namespace c_sharp_asp_net_server;
 
-namespace c_sharp_asp_net_server
+public class Startup
 {
-    public class Startup
+    public void ConfigureServices(IServiceCollection services)
     {
-        public void ConfigureServices(IServiceCollection services)
+        services.AddControllers(); // Add controller services
+        // services.AddDbContext<DatabaseContext>();
+    }
+
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        if (env.IsDevelopment())
         {
-            services.AddControllers(); // Add controller services
+            app.UseDeveloperExceptionPage(); // Enable developer exception page in development environment
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        app.UseRouting();
+        app.UseEndpoints(endpoints =>
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage(); // Enable developer exception page in development environment
-            }
-
-            app.UseRouting();
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers(); // Map controllers as endpoints
-                endpoints.MapGet("/", () => "Health check: 200"); // Health check route
-            });
-        }
+            endpoints.MapControllers(); // Map controllers as endpoints
+            endpoints.MapGet("/", () => "Health check: 200"); // Health check route
+        });
     }
 }
 
-
-
-namespace c_sharp_asp_net_server
+public class Program
 {
-    public class Program
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
-        {
-            CreateHostBuilder(args).Build().Run();
-        }
-
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>(); // Specify Startup class
-                });
+        CreateHostBuilder(args).Build().Run();
     }
+
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.UseStartup<Startup>(); // Specify Startup class
+            });
 }
