@@ -55,3 +55,5 @@ Congrats! The project should now be accessible through [localhost:5077](http://l
 ## Testing
 
 A [postman collection](postman-testing.json) has been included for convenient testing
+
+> A fair example [can be found here](https://github.com/cornflourblue/dotnet-6-crud-api/tree/master)
