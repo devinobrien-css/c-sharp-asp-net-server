@@ -5,69 +5,81 @@ using System.Linq;
 
 namespace c_sharp_asp_net_server.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("/[controller]")]
     [ApiController]
     public class ObjectController : ControllerBase
     {   
-        // GET: api/Object
+        // GET: /Object
         [HttpGet]
-        public IEnumerable<Object> Get()
+        public IActionResult Get()
         {
-            using(var db = new DatabaseContext())
-            {
-                db.Database.EnsureCreated();
+            using var db = new DatabaseContext();
+            db.Database.EnsureCreated();
 
-                var objects = db.Objects.ToList();
-                return objects;
-            }
+            var objects = db.Objects.ToList();
+            return Ok(objects);
         }
 
-        // // GET: api/Object/5
-        // [HttpGet("{id}")]
-        // public IActionResult Get(int id)
-        // {
-        //     var obj = _objects.FirstOrDefault(o => o.Id == id);
-        //     if (obj == null)
-        //     {
-        //         return NotFound();
-        //     }
-        //     return Ok(obj);
-        // }
+        // GET: /Object/{id}
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            using var db = new DatabaseContext();
+            db.Database.EnsureCreated();
 
-        // // POST: api/Object
-        // [HttpPost]
-        // public IActionResult Post([FromBody] ObjectModel obj)
-        // {
-        //     obj.Id = _objects.Max(o => o.Id) + 1;
-        //     _objects.Add(obj);
-        //     return CreatedAtAction(nameof(Get), new { id = obj.Id }, obj);
-        // }
+            var obj = db.Objects.FirstOrDefault(o => o.Id == id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            return Ok(obj);
+        }
 
-        // // PUT: api/Object/5
-        // [HttpPut("{id}")]
-        // public IActionResult Put(int id, [FromBody] ObjectModel obj)
-        // {
-        //     var existingObj = _objects.FirstOrDefault(o => o.Id == id);
-        //     if (existingObj == null)
-        //     {
-        //         return NotFound();
-        //     }
-        //     existingObj.Name = obj.Name;
-        //     existingObj.Description = obj.Description;
-        //     return NoContent();
-        // }
+        // POST: /Object
+        [HttpPost]
+        public IActionResult Post([FromBody] Object obj)
+        {
+            using var db = new DatabaseContext();
+            db.Database.EnsureCreated();
 
-        // // DELETE: api/Object/5
-        // [HttpDelete("{id}")]
-        // public IActionResult Delete(int id)
-        // {
-        //     var objToRemove = _objects.FirstOrDefault(o => o.Id == id);
-        //     if (objToRemove == null)
-        //     {
-        //         return NotFound();
-        //     }
-        //     _objects.Remove(objToRemove);
-        //     return NoContent();
-        // }
+            db.Objects.Add(obj);
+            db.SaveChanges();
+            return CreatedAtAction(nameof(Get), new { id = obj.Id }, obj);
+        }
+
+        // PUT: /Object/{id}
+        [HttpPut("{id}")]
+        public IActionResult Patch(int id, [FromBody] Object obj)
+        {
+            using var db = new DatabaseContext();
+            db.Database.EnsureCreated();
+
+            var existingObj = db.Objects.FirstOrDefault(o => o.Id == id);
+            if (existingObj == null)
+            {
+                return NotFound();
+            }
+            existingObj.Name = obj.Name;
+            existingObj.Description = obj.Description;
+            db.SaveChanges();
+            return NoContent();
+        }
+
+        // DELETE: /Object/{id}
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            using var db = new DatabaseContext();
+            db.Database.EnsureCreated();
+
+            var obj = db.Objects.FirstOrDefault(o => o.Id == id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            db.Objects.Remove(obj);
+            db.SaveChanges();
+            return NoContent();
+        }
     }
 }

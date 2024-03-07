@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "68dfb2d4-c29b-490a-88a9-61a2791f8808",
+		"name": "C# Server Testing",
+		"description": "A collection of requests to test a C# server over a MSSQL DB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22531987"
+	},
+	"item": [
+		{
+			"name": "Object",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [],
+			"url": {
+				"raw": "http://localhost:5077/object",
+				"protocol": "http",
+				"host": [
+					"localhost"
+				],
+				"port": "5077",
+				"path": [
+					"object"
+				]
+			}
+		},
+		{
+			"name": "Object/{id}",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [],
+			"url": {
+				"raw": "http://localhost:5077/object/1",
+				"protocol": "http",
+				"host": [
+					"localhost"
+				],
+				"port": "5077",
+				"path": [
+					"object"
+				]
+			}
+		},
+		{
+			"name": "Object",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"name of new object\",\n    \"description\": \"testing object insert\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5077/object",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5077",
+					"path": [
+						"object"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Object/{id}",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5077/object/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5077",
+					"path": [
+						"object",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Object/{id}",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"new updated name\",\n    \"description\": \"new updated description\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5077/object/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5077",
+					"path": [
+						"object",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

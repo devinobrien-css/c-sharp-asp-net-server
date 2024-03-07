@@ -8,7 +8,7 @@ externalDocs:
   description: Link to the repository on Github
   url: http://swagger.io
 servers:
-  - url: http://localhost:5077/api/
+  - url: http://localhost:5077/
 tags:
   - name: Object
     description: CRUD over Object table
@@ -70,7 +70,7 @@ paths:
         '404':
           description: Object not found
             
-    patch:
+    put:
       tags:
         - Object
       summary: Updates an object

@@ -11,8 +11,7 @@ public class Startup
 {
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddControllers(); // Add controller services
-        // services.AddDbContext<DatabaseContext>();
+        services.AddControllers();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -31,7 +30,7 @@ public class Startup
     }
 }
 
-public class Program
+public static class Program
 {
     public static void Main(string[] args)
     {

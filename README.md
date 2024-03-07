@@ -7,6 +7,7 @@ C# ASP.NET Server Example
 - [OpenAPI](#open-api-specifications)
 - [Dependencies](#dependencies)
 - [Setup Instructions](#setup-instructions)
+- [Testing](#testing)
 
 ## Open API Specifications
 
@@ -20,17 +21,18 @@ copy and paste the content into the [Swagger IO editor](https://editor.swagger.i
 
 ## Setup Instructions
 
-### Configure User Secrets
+### Microsoft SQL Server
 
-- Once the repository is cloned, navigate to the root directory of the project in the terminal.
+1. Clone the `docker-sqlserver-sample` repository to your local machine:
 
-- Run the following command to set up user secrets:
+    ```bash
+    $ git clone https://github.com/devinobrien-css/docker-sqlserver-sample.git
+    ...
+    ```
 
-```bash
-    dotnet user-secrets set "ConnectionStrings:SqlConnection" "Server=localhost;Database=sqlserver;User Id=sa;Password=YourStrong@Passw0rd;"
-```
+2. Follow the instructions provided in that repository's README to launch the instance.
 
-> Note: this secret is dependent on running a local MSSQL instance. An example can used by following the ReadMe [from this repo](https://github.com/devinobrien-css/docker-sqlserver-sample)
+> Note: this repo is dependent on running a local MSSQL instance. An example can used by following the ReadMe [from this repo](https://github.com/devinobrien-css/docker-sqlserver-sample) as stated above.
 
 ### Build and Run the Project
 
@@ -49,3 +51,7 @@ copy and paste the content into the [Swagger IO editor](https://editor.swagger.i
 ```
 
 Congrats! The project should now be accessible through [localhost:5077](http://localhost:5077). Open in browser to verify the healthcheck endpoint is hit!
+
+## Testing
+
+A [postman collection](postman-testing.json) has been included for convenient testing
