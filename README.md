@@ -4,8 +4,14 @@ C# ASP.NET Server Example
 
 ## Table of Contents
 
+- [OpenAPI](#open-api-specifications)
 - [Dependencies](#dependencies)
 - [Setup Instructions](#setup-instructions)
+
+## Open API Specifications
+
+To view the endpoint specs for this server, please refer to the [OpenAPI yaml](openapi.yaml). To view them neatly,
+copy and paste the content into the [Swagger IO editor](https://editor.swagger.io/)
 
 ## Dependencies
 
