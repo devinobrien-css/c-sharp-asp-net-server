@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "68dfb2d4-c29b-490a-88a9-61a2791f8808",
+		"_postman_id": "2cb60da5-6569-4379-88f1-2c5844accdba",
 		"name": "C# Server Testing",
 		"description": "A collection of requests to test a C# server over a MSSQL DB",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
@@ -11,39 +11,40 @@
 			"name": "Object",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5077/object",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5077",
+					"path": [
+						"object"
+					]
+				}
 			},
-			"response": [],
-			"url": {
-				"raw": "http://localhost:5077/object",
-				"protocol": "http",
-				"host": [
-					"localhost"
-				],
-				"port": "5077",
-				"path": [
-					"object"
-				]
-			}
+			"response": []
 		},
 		{
 			"name": "Object/{id}",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5077/object/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5077",
+					"path": [
+						"object",
+						"4"
+					]
+				}
 			},
-			"response": [],
-			"url": {
-				"raw": "http://localhost:5077/object/1",
-				"protocol": "http",
-				"host": [
-					"localhost"
-				],
-				"port": "5077",
-				"path": [
-					"object"
-				]
-			}
+			"response": []
 		},
 		{
 			"name": "Object",
@@ -96,11 +97,11 @@
 		{
 			"name": "Object/{id}",
 			"request": {
-				"method": "PATCH",
+				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"new updated name\",\n    \"description\": \"new updated description\"\n}",
+					"raw": "{\n    \"name\": \"new updated name here\",\n    \"description\": \"new updated description\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -108,7 +109,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5077/object/1",
+					"raw": "http://localhost:5077/object/4",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -116,9 +117,17 @@
 					"port": "5077",
 					"path": [
 						"object",
-						"1"
+						"4"
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": []
 			},
 			"response": []
 		}

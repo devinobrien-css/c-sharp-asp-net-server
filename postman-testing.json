@@ -1,53 +1,57 @@
 {
 	"info": {
-		"_postman_id": "2cb60da5-6569-4379-88f1-2c5844accdba",
+		"_postman_id": "0b38cb75-b073-4912-8c40-9c9346e193e9",
 		"name": "C# Server Testing",
-		"description": "A collection of requests to test a C# server over a MSSQL DB",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "22531987"
 	},
 	"item": [
 		{
-			"name": "Object",
+			"name": "Objects",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"url": {
+				"raw": "http://localhost:5000/",
+				"protocol": "http",
+				"host": [
+					"localhost"
+				],
+				"port": "5000"
+			},
+			"response": []
+		},
+		{
+			"name": "Objects/{id}",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5077/object",
+					"raw": "http://localhost:5000/objects/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5077",
+					"port": "5000",
 					"path": [
-						"object"
+						"objects",
+						"1"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Object/{id}",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:5077/object/4",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5077",
-					"path": [
-						"object",
-						"4"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Object",
+			"name": "Objects",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -61,47 +65,47 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5077/object",
+					"raw": "http://localhost:5000/objects",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5077",
+					"port": "5000",
 					"path": [
-						"object"
+						"objects"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Object/{id}",
+			"name": "Objects/{id}",
 			"request": {
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5077/object/5",
+					"raw": "http://localhost:5000/objects/7",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5077",
+					"port": "5000",
 					"path": [
-						"object",
-						"5"
+						"objects",
+						"7"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Object/{id}",
+			"name": "Objects/{id}",
 			"request": {
-				"method": "PUT",
+				"method": "PATCH",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"new updated name here\",\n    \"description\": \"new updated description\"\n}",
+					"raw": "{\n    \"name\": \"newly updated item's name!\",\n    \"description\": \"lot's of learning, learning lots\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -109,25 +113,17 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5077/object/4",
+					"raw": "http://localhost:5000/objects/7",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5077",
+					"port": "5000",
 					"path": [
-						"object",
-						"4"
+						"objects",
+						"7"
 					]
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "Health Check",
-			"request": {
-				"method": "GET",
-				"header": []
 			},
 			"response": []
 		}

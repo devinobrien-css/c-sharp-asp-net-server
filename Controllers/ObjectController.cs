@@ -5,11 +5,11 @@ using System.Linq;
 
 namespace c_sharp_asp_net_server.Controllers
 {
-    [Route("/[controller]")]
+    [Route("/Objects")]
     [ApiController]
     public class ObjectController : ControllerBase
     {   
-        // GET: /Object
+        // GET: /Objects
         [HttpGet]
         public IActionResult Get()
         {
@@ -20,7 +20,7 @@ namespace c_sharp_asp_net_server.Controllers
             return Ok(objects);
         }
 
-        // GET: /Object/{id}
+        // GET: /Objects/{id}
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
@@ -35,7 +35,7 @@ namespace c_sharp_asp_net_server.Controllers
             return Ok(obj);
         }
 
-        // POST: /Object
+        // POST: /Objects
         [HttpPost]
         public IActionResult Post([FromBody] Object obj)
         {
@@ -47,7 +47,7 @@ namespace c_sharp_asp_net_server.Controllers
             return CreatedAtAction(nameof(Get), new { id = obj.Id }, obj);
         }
 
-        // PUT: /Object/{id}
+        // PUT: /Objects/{id}
         [HttpPut("{id}")]
         public IActionResult Patch(int id, [FromBody] Object obj)
         {
@@ -65,7 +65,7 @@ namespace c_sharp_asp_net_server.Controllers
             return NoContent();
         }
 
-        // DELETE: /Object/{id}
+        // DELETE: /Objects/{id}
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
