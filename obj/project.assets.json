@@ -3664,24 +3664,25 @@
     ]
   },
   "packageFolders": {
-    "/Users/devin.obrien/.nuget/packages/": {}
+    "/Users/devinpobrien/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/devin.obrien/Library/CloudStorage/OneDrive-WarnerBros.Discovery/Documents/GitHub/c-sharp-asp-net-server/c-sharp-asp-net-server.csproj",
+      "projectUniqueName": "/Users/devinpobrien/Code/c-sharp-asp-net-server/c-sharp-asp-net-server.csproj",
       "projectName": "c-sharp-asp-net-server",
-      "projectPath": "/Users/devin.obrien/Library/CloudStorage/OneDrive-WarnerBros.Discovery/Documents/GitHub/c-sharp-asp-net-server/c-sharp-asp-net-server.csproj",
-      "packagesPath": "/Users/devin.obrien/.nuget/packages/",
-      "outputPath": "/Users/devin.obrien/Library/CloudStorage/OneDrive-WarnerBros.Discovery/Documents/GitHub/c-sharp-asp-net-server/obj/",
+      "projectPath": "/Users/devinpobrien/Code/c-sharp-asp-net-server/c-sharp-asp-net-server.csproj",
+      "packagesPath": "/Users/devinpobrien/.nuget/packages/",
+      "outputPath": "/Users/devinpobrien/Code/c-sharp-asp-net-server/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/devin.obrien/.nuget/NuGet/NuGet.Config"
+        "/Users/devinpobrien/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "/usr/local/share/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3741,7 +3742,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
